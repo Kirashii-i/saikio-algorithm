@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Acceder | Saikio Algorithm</title>
+
+    <link
+        rel="stylesheet"
+        href="login.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- DECORACIONES -->
+
+    <div class="decoration flower-one">✿</div>
+
+    <div class="decoration flower-two">✿</div>
+
+    <div class="decoration sparkle-one">✦</div>
+
+    <div class="decoration sparkle-two">✧</div>
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+
+    <main class="login-container">
+
+
+        <!-- PARTE VISUAL -->
+
+        <section class="welcome-side">
+
+
+            <div class="welcome-content">
+
+                <div class="mini-logo">
+                    SA
+                </div>
+
+
+                <span class="welcome-label">
+                    SAIKIO ALGORITHM
+                </span>
+
+
+                <h1>
+                    Bienvenido a
+                    <em>Saikio.</em>
+                </h1>
+
+
+                <p>
+                    La lógica detrás de cada gran idea.
+                </p>
+
+
+                <div class="japanese-text">
+                    思考 · 創造 · 技術
+                </div>
+
+            </div>
+
+
+            <!-- CÍRCULOS DECORATIVOS -->
+
+            <div class="soft-circle circle-a"></div>
+
+            <div class="soft-circle circle-b"></div>
+
+            <div class="soft-light"></div>
+
+
+        </section>
+
+
+
+        <!-- FORMULARIO -->
+
+        <section class="login-side">
+
+
+            <div class="login-box">
+
+
+                <div class="login-header">
+
+                    <span>
+                        INICIAR SESIÓN
+                    </span>
+
+                    <h2>
+                        Accede a tu cuenta
+                    </h2>
+
+                    <p>
+                        Ingresa tus datos para continuar.
+                    </p>
+
+                </div>
+
+
+
+                <form id="loginForm">
+
+
+                    <!-- CORREO / TELÉFONO -->
+
+                    <div class="input-group">
+
+                        <label for="user">
+
+                            Correo electrónico
+                            o número de teléfono
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="user"
+                            placeholder="correo@ejemplo.com"
+                            autocomplete="username"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+
+                            Contraseña
+
+                        </label>
+
+
+                        <div class="password-container">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Ingresa tu contraseña"
+                                autocomplete="current-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                id="showPassword"
+                                class="show-password">
+
+                                Mostrar
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- OPCIONES -->
+
+                    <div class="login-options">
+
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="remember">
+
+                            <span>
+                                Recordarme
+                            </span>
+
+                        </label>
+
+
+                        <a href="#"
+                           onclick="forgotPassword(event)">
+
+                            ¿Olvidaste tu contraseña?
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- MENSAJE DE ERROR -->
+
+                    <p
+                        id="errorMessage"
+                        class="error-message">
+                    </p>
+
+
+
+                    <!-- BOTÓN -->
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Acceder
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

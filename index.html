@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saikio Algorithm</title>
+
+    <!--
+        CUANDO TENGAN SU LOGO:
+        guárdenlo como "logo.png" dentro de la carpeta imagenes
+    -->
+    <link rel="icon" href="imagenes/logo.png">
+
+    <link rel="stylesheet" href="styleee.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
+
+    <header class="header">
+
+        <a href="#inicio" class="logo-area">
+
+            <!-- ESPACIO PARA EL LOGO -->
+            <div class="logo-placeholder">
+                SA
+            </div>
+
+            <div>
+                <strong>Saikio Algorithm</strong>
+                <small>Code · Creativity · Technology</small>
+            </div>
+
+        </a>
+
+
+        <nav class="navigation" id="navigation">
+
+            <a href="#inicio" data-es="Inicio" data-en="Home">
+                Inicio
+            </a>
+
+            <a href="#nosotros" data-es="Nosotros" data-en="About us">
+                Nosotros
+            </a>
+
+            <a href="#servicios" data-es="Servicios" data-en="Services">
+                Servicios
+            </a>
+
+            <a href="#soluciones" data-es="Nuestros Algoritmos" data-en="Our Algorithms">
+                Nuestros Algoritmos
+            </a>
+
+            <a href="#contacto" data-es="Contacto" data-en="Contact">
+                Contacto
+            </a>
+
+        </nav>
+
+
+        <div class="header-right">
+
+            <!-- BUSCADOR -->
+
+            <div class="search">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    data-placeholder-es="Buscar..."
+                    data-placeholder-en="Search..."
+                    placeholder="Buscar..."
+                >
+
+                <button id="searchButton">
+                    ⌕
+                </button>
+
+            </div>
+
+
+            <!-- IDIOMA -->
+
+            <button
+                class="language"
+                id="languageButton">
+
+                EN
+
+            </button>
+
+
+            <a
+                href="#contacto"
+                class="header-button"
+                data-es="Solicitar un servicio"
+                data-en="Request a service">
+
+                Solicitar un servicio
+
+            </a>
+
+        </div>
+
+
+        <!-- MENÚ CELULAR -->
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu">
+
+            ☰
+
+        </button>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            class="hero"
+            id="inicio">
+
+
+            <!-- DECORACIONES -->
+
+            <div class="petal petal-1">✿</div>
+            <div class="petal petal-2">✿</div>
+            <div class="sparkle sparkle-1">✦</div>
+            <div class="sparkle sparkle-2">✧</div>
+
+
+            <div class="hero-content">
+
+
+                <div class="hero-label">
+
+                    <span></span>
+
+                    <p
+                        data-es="CREACIÓN DIGITAL"
+                        data-en="DIGITAL CREATION">
+
+                        CREACION DIGITAL
+
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <h1
+                    data-es="De una idea a una 
+experiencia digital."
+                    data-en="From an idea to a 
+digital experience.">
+
+                    De una idea a una
+                    <em>experiencia digital.</em>
+
+                </h1>
+
+
+                <p
+                    class="hero-description"
+                    data-es="En Saikio Algorithm exploramos las posibilidades de la programación para convertir ideas creativas en proyectos digitales originales."
+                    data-en="At Saikio Algorithm, we explore the possibilities of programming to turn creative ideas into original digital projects.">
+
+                    En Saikio Algorithm exploramos las posibilidades
+    de la programación para convertir ideas creativas
+    en proyectos digitales originales.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#servicios"
+                        class="main-button"
+                        data-es="Explorar proyectos"
+                        data-en="Explore projects">
+
+                        Explorar proyectos
+
+                    </a>
+
+
+                    <a
+                        href="#nosotros"
+                        class="secondary-button"
+                        data-es="Conocernos"
+                        data-en="Meet us">
+
+                        Conocernos
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMAGEN PRINCIPAL -->
+
+            <div class="hero-art">
+
+                <!--
+                    AQUÍ PONDRÁN SU IMAGEN CUANDO LA TENGAN.
+
+                    Ejemplo:
+                    <img src="imagenes/imagen-principal.png">
+
+                    Por ahora dejamos una decoración.
+                -->
+
+                <div class="art-glow"></div>
+
+                <div class="art-card">
+
+                    <div class="mini-star">✦</div>
+
+                    <span>SAIKIO</span>
+
+                    <strong>Algorithm</strong>
+
+                    <small>
+                        思考 · 創造 · 技術
+                    </small>
+
+                </div>
+
+
+                <div class="art-circle circle-one"></div>
+                <div class="art-circle circle-two"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PRESENTACIÓN
+        ====================================================== -->
+
+        <section class="intro section">
+
+
+            <div class="intro-heading">
+
+                <span class="small-title"
+                    data-es="NUESTRA ESENCIA"
+                    data-en="OUR ESSENCE">
+
+                    NUESTRA ESENCIA
+
+                </span>
+
+
+                <h2
+                    data-es="Ideas que toman forma mediante la tecnología."
+                    data-en="Ideas taking shape through technology.">
+
+                    Ideas que toman forma mediante la tecnología.
+
+                </h2>
+
+
+                <p
+                    data-es="Cada proyecto comienza con una idea. La programación, la creatividad y la lógica nos permiten convertirla en una experiencia digital."
+                    data-en="Every project begins with an idea. Programming, creativity and logic allow us to turn it into a digital experience.">
+
+    Cada proyecto comienza con una idea.
+    La programación, la creatividad y la lógica
+    nos permiten convertirla en una experiencia digital.
+
+                </p>
+
+            </div>
+
+
+            <div class="essence-grid">
+
+
+                <article class="essence-card">
+
+                    <div class="essence-icon">
+                        01
+                    </div>
+
+                    <h3
+                        data-es="Programacion"
+                        data-en="Programing">
+
+                        Programacion
+
+                    </h3>
+
+                    <p
+                        data-es="Utilizamos código para construir el funcionamiento de cada proyecto y convertir las ideas en experiencias digitales."
+                        data-en="We use code to build how each project works and turn ideas into digital experiences.">
+
+    Utilizamos código para construir el funcionamiento
+    de cada proyecto y convertir las ideas en
+    experiencias digitales.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="essence-card pink-card">
+
+                    <div class="essence-icon">
+                        02
+                    </div>
+
+                    <h3
+                        data-es="Creatividad"
+                        data-en="Creativity">
+
+                        Creatividad
+
+                    </h3>
+
+                    <p
+                        data-es="Exploramos ideas diferentes para crear proyectos originales y experiencias digitales con identidad propia."
+                        data-en="We explore different ideas to create original projects and digital experiences with their own identity.">
+
+    Exploramos ideas diferentes para crear proyectos
+    originales y experiencias digitales con identidad propia.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="essence-card">
+
+                    <div class="essence-icon">
+                        03
+                    </div>
+
+                    <h3
+                        data-es="Logica"
+                        data-en="Logic">
+
+                        Logica
+
+                    </h3>
+
+                    <p
+                        data-es="Los algoritmos nos permiten organizar las instrucciones que hacen posible el funcionamiento de nuestros proyectos."
+    data-en="Algorithms allow us to organize the instructions that make our projects work.">
+
+    Los algoritmos nos permiten organizar las instrucciones
+    que hacen posible el funcionamiento de nuestros proyectos.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             NOSOTROS
+        ====================================================== -->
+
+        <section
+            class="about section"
+            id="nosotros">
+
+
+            <div class="section-header">
+
+                <span class="small-title"
+                    data-es="SOBRE NOSOTROS"
+                    data-en="ABOUT US">
+
+                    SOBRE NOSOTROS
+
+                </span>
+
+
+                <h2
+                    data-es="Creamos a partir de 
+ideas."
+                    data-en="We create from
+ ideas.">
+
+                    Creamos a partir de
+                    <em>ideas.</em>
+
+                </h2>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="about-text">
+                    <p
+                        data-es="Saikio Algorithm es un proyecto de desarrollo de software enfocado en la creación y exploración digital. Combinamos programación, creatividad y tecnología para transformar ideas en proyectos de diferentes tipos, desde herramientas y experiencias hasta propuestas experimentales y de entretenimiento."
+                        data-en="Saikio Algorithm is a software development project focused on digital creation and exploration. We combine programming, creativity and technology to transform ideas into different types of projects, from tools and experiences to experimental and entertainment proposals.">
+
+    Saikio Algorithm es un proyecto de desarrollo de software
+    enfocado en la creación y exploración digital. Combinamos
+    programación, creatividad y tecnología para transformar ideas
+    en proyectos de diferentes tipos, desde herramientas y
+    experiencias hasta propuestas experimentales y de entretenimiento.
+                    </p>
+
+
+                    <div class="about-line"></div>
+
+
+                    <div class="values">
+
+                        <div>
+                            <strong>✦</strong>
+                            <span
+                                data-es="Creatividad"
+                                data-en="Creativity">
+
+                                Creatividad
+
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>✦</strong>
+                            <span
+                                data-es="Innovación"
+                                data-en="Innovation">
+
+                                Innovación
+
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>✦</strong>
+                            <span
+                                data-es="Curiosidad"
+                                data-en="Curiosity">
+
+                                Curiosidad
+
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>✦</strong>
+                            <span
+                                data-es="Originalidad"
+                                data-en="Originality">
+
+                                Originalidad
+
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="mission-box">
+
+                    <div class="mission-decoration">
+                        ✿
+                    </div>
+
+                    <span
+                        data-es="NUESTRA MISIÓN"
+                        data-en="OUR MISSION">
+
+                        NUESTRA MISIÓN
+
+                    </span>
+
+                    <h3
+                        data-es="Crear proyectos digitales que combinen programación, creatividad y tecnología para convertir ideas originales en experiencias y propuestas digitales."
+    data-en="Create digital projects that combine programming, creativity and technology to turn original ideas into digital experiences and projects.">
+
+    Crear proyectos digitales que combinen
+    programación, creatividad y tecnología para
+    convertir ideas originales en experiencias
+    y propuestas digitales.
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SERVICIOS
+        ====================================================== -->
+
+        <section
+            class="services section"
+            id="servicios">
+
+
+            <div class="section-header centered">
+
+                <span class="small-title"
+                    data-es="LO QUE HACEMOS"
+                    data-en="WHAT WE DO">
+
+                    LO QUE HACEMOS
+
+                </span>
+
+
+                <h2
+                    data-es="Nuestros servicios."
+                    data-en="Our services.">
+
+                    Nuestros servicios.
+
+                </h2>
+
+
+                <p
+                    data-es="Desarrollamos diferentes tipos de proyectos digitales según la idea, propósito y experiencia que queremos crear."
+                    data-en="We develop various types of digital projects based on the idea, purpose, and experience we want to create.">
+
+                    Desarrollamos diferentes tipos de proyectos digitales según la idea, propósito y experiencia que queremos crear.
+
+                </p>
+
+            </div>
+
+
+            <div class="services-list">
+
+
+                <!-- SERVICIO 1 -->
+
+                <article class="service">
+
+                    <div class="service-top">
+
+                        <span>01</span>
+
+                        <div>
+                            ◇
+                        </div>
+
+                    </div>
+
+                    <h3
+                        data-es="Desarrollo de proyectos digitales"
+                        data-en="Digital project development">
+
+                        Desarrollo de proyectos digitales
+
+                    </h3>
+
+                    <p
+                        data-es="Creamos páginas, aplicaciones y proyectos digitales utilizando programación, diseño y lógica."
+                        data-en="We create websites, applications, and digital projects using programming, design, and logic.">
+
+                        Creamos páginas, aplicaciones y proyectos digitales utilizando programación, diseño y lógica.
+                    </p>
+
+                    <a href="#contacto">
+                        →
+                    </a>
+
+                </article>
+
+
+
+                <!-- SERVICIO 2 -->
+
+                <article class="service">
+
+                    <div class="service-top">
+
+                        <span>02</span>
+
+                        <div>
+                            ✧
+                        </div>
+
+                    </div>
+
+                    <h3
+                        data-es="Herramientas digitales"
+                        data-en="Digital tools">
+
+                        Herramientas digitales
+
+                    </h3>
+
+                    <p
+                        data-es="Desarrollamos herramientas y funciones diseñadas para realizar tareas específicas de forma organizada."
+                        data-en="We develop tools and features designed to perform specific tasks in an organized manner.">
+
+                        Desarrollamos herramientas y funciones diseñadas para realizar tareas específicas de forma organizada.
+
+                    </p>
+
+                    <a href="#contacto">
+                        →
+                    </a>
+
+                </article>
+
+
+
+                <!-- SERVICIO 3 -->
+
+                <article class="service">
+
+                    <div class="service-top">
+
+                        <span>03</span>
+
+                        <div>
+                            ○
+                        </div>
+
+                    </div>
+
+                    <h3
+                        data-es="Experiencias digitales"
+                        data-en="Digital experiences">
+
+                        Experiencias digitales
+
+                    </h3>
+
+                    <p
+                        data-es="Combinamos programación, interacción y contenido visual para crear experiencias diferentes."
+                        data-en="We combine programming, interaction, and visual content to create unique experiences.">
+
+                        Combinamos programación, interacción y contenido visual para crear experiencias diferentes.
+
+                    </p>
+
+                    <a href="#contacto">
+                        →
+                    </a>
+
+                </article>
+
+
+
+                <!-- SERVICIO 4 -->
+
+                <article class="service">
+
+                    <div class="service-top">
+
+                        <span>04</span>
+
+                        <div>
+                            ✦
+                        </div>
+
+                    </div>
+
+                    <h3
+                        data-es="Proyectos experimentales"
+                        data-en="Experimental projects">
+
+                        Proyectos experimentales
+
+                    </h3>
+
+                    <p
+                        data-es="Exploramos ideas y posibilidades tecnológicas mediante prototipos, pruebas y programación."
+                        data-en="We explore ideas and technological possibilities through prototyping, testing, and programming.">
+
+                        Exploramos ideas y posibilidades tecnológicas mediante prototipos, pruebas y programación.
+
+                    </p>
+
+                    <a href="#contacto">
+                        →
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROCESO
+        ====================================================== -->
+
+        <section class="process section">
+
+
+            <div class="process-title">
+
+                <span class="small-title"
+                    data-es="NUESTRO PROCESO"
+                    data-en="OUR PROCESS">
+
+                    NUESTRO PROCESO
+
+                </span>
+
+
+                <h2
+                    data-es="De la idea al resultado."
+                    data-en="From idea to result.">
+
+                    De la idea al resultado.
+
+                </h2>
+
+            </div>
+
+
+            <div class="process-steps">
+
+
+                <div class="step">
+
+                    <span>01</span>
+
+                    <h3
+                        data-es="Plantear"
+                        data-en="Propose">
+
+                        Plantear
+
+                    </h3>
+
+                    <p
+                        data-es="Definimos la idea y el propósito del proyecto."
+                        data-en="We define the idea and purpose of the project.">
+
+                        Definimos la idea y el propósito del proyecto.
+
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>02</span>
+
+                    <h3
+                        data-es="Analizar"
+                        data-en="Analyze">
+
+                        Analizar
+
+                    </h3>
+
+                    <p
+                        data-es="Estudiamos lo que necesitamos para desarrollarlo."
+                        data-en="We are studying what we need to develop it.">
+
+                        Estudiamos lo que necesitamos para desarrollarlo.
+
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>03</span>
+
+                    <h3
+                        data-es="Desarrollar"
+                        data-en="Develop">
+
+                        Desarrollar
+
+                    </h3>
+
+                    <p
+                        data-es="Convertimos la idea en código."
+                        data-en="We turn the idea into code.">
+
+                        Convertimos la idea en código.
+
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>04</span>
+
+                    <h3
+                        data-es="Probar"
+                        data-en="Test">
+
+                        Probar
+
+                    </h3>
+
+                    <p
+                        data-es="Comprobamos su funcionamiento y realizamos mejoras."
+                        data-en="We verify its operation and make improvements.">
+
+                        Comprobamos su funcionamiento y realizamos mejoras.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOLUCIONES / ALGORITMOS
+        ====================================================== -->
+
+        <section
+            class="solutions section"
+            id="soluciones">
+
+
+            <div class="section-header">
+
+                <span class="small-title"
+                    data-es="PROYECTOS DESTACADAS"
+                    data-en="FEATURED PROJECTS">
+
+                    SOLUCIONES DESTACADAS
+
+                </span>
+
+
+                <h2
+                    data-es="Ideas convertidas en proyectos."
+                    data-en="Ideas turned into projects.">
+
+                    Ideas convertidas
+                    <em>en proyectos.</em>
+
+                </h2>
+
+
+                <p
+                    data-es="Cada proyecto de Saikio Algorithm nace de una idea diferente y utiliza la programación y la lógica algorítmica para darle forma."
+                    data-en="Each Saikio Algorithm project stems from a unique idea and uses programming and algorithmic logic to give it shape.">
+
+                    Cada proyecto de Saikio Algorithm nace de una idea diferente y utiliza la programación y la lógica algorítmica para darle forma.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="algorithm-grid">
+
+
+                <!-- ALGORITMO 1 -->
+
+                <article class="algorithm-card">
+
+                    <div class="algorithm-number">
+                        01
+                    </div>
+
+                    <a href="algoritmos.html#algoritmo 1" class="boton">
+
+                    <span class="algorithm-type">
+                        SECUENCIAL
+                    </span>
+
+                    <h3>
+                        Line to Life
+                    </h3>
+
+                    <p>
+                        Muestra de forma ordenada cada 
+                        etapa de una ilustración anime.
+
+                    </p>
+
+
+                   
+                    <button
+                        
+                        data-es="Probar"
+                        data-en="Try">
+
+                        Probar
+
+                    </button>
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- ALGORITMO 2 -->
+
+                <article class="algorithm-card pink-algorithm">
+
+                    <div class="algorithm-number">
+                        02
+                    </div>
+
+                    <span class="algorithm-type">
+                        SELECCIÓN
+                    </span>
+
+                    <h3>
+                        Anime Mood Shift
+                    </h3>
+
+                    <p>
+                        Elige un comentario y observa como cambia la expresion del personaje en tiempo real.
+
+
+                    </p>
+
+                    <a href="algoritmos.html#algoritmo 2" class="boton">
+                   
+                    <button
+                        
+                        data-es="Probar"
+                        data-en="Try">
+
+                        Probar
+
+                    </button>
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- ALGORITMO 3 -->
+
+                <article class="algorithm-card">
+
+                    <div class="algorithm-number">
+                        03
+                    </div>
+
+                    <span class="algorithm-type">
+                        CICLO
+                    </span>
+
+                    <h3>
+                        [Nombre del algoritmo]
+                    </h3>
+
+                    <p>
+                        [Aquí colocaremos la descripción
+                        del tercer algoritmo.]
+                    </p>
+
+                    <a href="algoritmos.html#algoritmo 3" class="boton">
+                   
+                    <button
+                        
+                        data-es="Probar"
+                        data-en="Try">
+
+                        Probar
+
+                    </button>
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!--
+                    CUANDO TENGAMOS LOS 5 ALGORITMOS,
+                    AGREGAREMOS AQUÍ EL 04 Y EL 05.
+                -->
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACTO
+        ====================================================== -->
+
+        <section
+            class="contact section"
+            id="contacto">
+
+
+            <div class="contact-box">
+
+
+                <div class="contact-text">
+
+                    <span class="small-title"
+                        data-es="CONTACTO"
+                        data-en="CONTACT">
+
+                        CONTACTO
+
+                    </span>
+
+
+                    <h2
+                        data-es="¿Creamos algo juntos?"
+                        data-en="Shall we create something together?">
+
+                        ¿Creamos algo
+                        <em>juntos?</em>
+
+                    </h2>
+
+
+                    <p
+                        data-es="¿Tienes una idea? Cuéntanos qué te gustaría crear y exploremos juntos cómo puede convertirse en un proyecto digital."
+                        data-en="Do you have an idea? Tell us what you’d like to create, and let’s explore together how it can become a digital project.">
+
+                        ¿Tienes una idea? Cuéntanos qué te gustaría crear y exploremos juntos cómo puede convertirse en un proyecto digital.
+
+                    </p>
+
+
+                    <div class="contact-details">
+
+                        <p>
+                            ✉ hello@saikioalgorithm.jp
+                        </p>
+
+                        <p>
+                            ☎ +81 3-5555-0128
+                        </p>
+
+                        <p>
+                            ⌖ Tokyo Skytree, Japón
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form id="contactForm">
+
+
+                    <input
+                        type="text"
+                        placeholder="Nombre"
+                        data-placeholder-es="Nombre"
+                        data-placeholder-en="Name"
+                        required>
+
+
+                    <input
+                        type="email"
+                        placeholder="Correo electrónico"
+                        data-placeholder-es="Correo electrónico"
+                        data-placeholder-en="Email"
+                        required>
+
+
+                    <select required>
+
+                        <option value=""
+                            data-es="Selecciona un tipo de proyecto"
+                            data-en="Select a project type">
+
+                            Selecciona un tipo de proyecto
+
+                        </option>
+
+                        <option
+                            data-es="Desarrollo de proyectos digitales"
+                            data-en="Digital project development">
+
+                            Desarrollo de proyectos digitales
+
+                        </option>
+
+                        <option
+                            data-es="Herramientas digitales"
+                            data-en="Digital tools">
+
+                            Herramientas digitales
+
+                        </option>
+
+                        <option
+                            data-es="Experiencias digitales"
+                            data-en="Digital experiences">
+
+                            Experiencias digitales
+
+                        </option>
+
+                        <option
+                            data-es="Proyectos experimentales"
+                            data-en="Experimental projects">
+
+                            Proyectos experimentales
+
+                        </option>
+
+                    </select>
+
+
+                    <textarea
+                        rows="5"
+                        placeholder="Cuéntanos sobre tu proyecto..."
+                        data-placeholder-es="Cuéntanos sobre tu proyecto..."
+                        data-placeholder-en="Tell us about your project..."
+                        required></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="main-button"
+                        data-es="Enviar solicitud"
+                        data-en="Send request">
+
+                        Enviar solicitud
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    SA
+                </div>
+
+                <h3>
+                    Saikio Algorithm
+                </h3>
+
+                <p>
+                   Code · Creativity · Technology
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4
+                    data-es="Navegación"
+                    data-en="Navigation">
+
+                    Navegación
+
+                </h4>
+
+                <a href="#inicio"
+                    data-es="Inicio"
+                    data-en="Home">
+
+                    Inicio
+
+                </a>
+
+                <a href="#nosotros"
+                    data-es="Nosotros"
+                    data-en="About us">
+
+                    Nosotros
+
+                </a>
+
+                <a href="#servicios"
+                    data-es="Servicios"
+                    data-en="Services">
+
+                    Servicios
+
+                </a>
+
+                <a href="#Proyectos"
+                    data-es="Proyectos"
+                    data-en="Projects">
+
+                    Proyectos
+
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4
+                    data-es="Contacto"
+                    data-en="Contact">
+
+                    Contacto
+
+                </h4>
+
+                <p>
+                    hello@saikioalgorithm.jp
+                </p>
+
+                <p>
+                    +81 3-5555-0128
+                </p>
+
+                <p>
+                    Tokyo Skytree, Japón
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4
+                    data-es="Redes"
+                    data-en="Social">
+
+                    Redes
+
+                </h4>
+
+                <a href="#">
+                    @saikio.algorithm
+                </a>
+
+                <a href="#">
+                    @saikioalgorithm
+                </a>
+
+                <a href="#">
+                    Saikio Algorithm
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                <a href="#"
+                    data-es="Aviso legal"
+                    data-en="Legal notice">
+
+                    Aviso legal
+
+                </a>
+
+                <a href="#"
+                    data-es="Privacidad"
+                    data-en="Privacy policy">
+
+                    Privacidad
+
+                </a>
+
+                <a href="#"
+                    data-es="Términos"
+                    data-en="Terms of service">
+
+                    Términos
+
+                </a>
+
+            </div>
+
+
+            <p>
+                © 2026 Saikio Algorithm
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         VENTANA DE ALGORITMO
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="demoModal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                onclick="closeDemo()">
+
+                ×
+
+            </button>
+
+            <span class="small-title">
+                DEMO
+            </span>
+
+            <h2 id="demoTitle">
+                Algoritmo
+            </h2>
+
+            <p
+                data-es="Aquí aparecerá la demostración interactiva de esta solución."
+                data-en="The interactive demonstration of this solution will appear here.">
+
+                Aquí aparecerá la demostración
+                interactiva de esta solución.
+
+            </p>
+
+            <div class="demo-space">
+
+                <span>✦</span>
+
+                <p>
+                    Resultado
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="scrippt.js"></script>
+
+</body>
+
+</html>

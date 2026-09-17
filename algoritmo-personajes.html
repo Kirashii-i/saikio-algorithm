@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saikio Algorithm | Expresiones</title>
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                radial-gradient(circle at 15% 20%,
+                    rgba(255, 220, 225, 0.45),
+                    transparent 28%),
+
+                radial-gradient(circle at 85% 80%,
+                    rgba(255, 229, 190, 0.35),
+                    transparent 30%),
+
+                linear-gradient(
+                    135deg,
+                    #fff8f2,
+                    #fdf0eb,
+                    #fff7ef
+                );
+
+            color: #654c4c;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           DECORACIONES DEL FONDO
+        ===================================================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 380px;
+            height: 380px;
+
+            border-radius: 50%;
+
+            background: rgba(244, 190, 196, 0.16);
+
+            top: -160px;
+            left: -160px;
+
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 219, 166, 0.14);
+
+            right: -220px;
+            bottom: -220px;
+
+            z-index: -1;
+        }
+
+
+        /* =====================================================
+           DECORACIONES SAKURA
+        ===================================================== */
+
+        .sakura {
+            position: fixed;
+
+            color: #e6aeb3;
+
+            font-size: 22px;
+
+            opacity: 0.5;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .sakura-1 {
+            top: 80px;
+            left: 4%;
+        }
+
+        .sakura-2 {
+            top: 25%;
+            right: 5%;
+            font-size: 28px;
+        }
+
+        .sakura-3 {
+            bottom: 12%;
+            left: 6%;
+            font-size: 18px;
+        }
+
+        .sakura-4 {
+            bottom: 6%;
+            right: 8%;
+            font-size: 24px;
+        }
+
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+
+        header {
+            width: 100%;
+
+            padding: 28px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+        .logo {
+            text-decoration: none;
+
+            color: #634b4b;
+
+            letter-spacing: 5px;
+
+            font-size: 19px;
+
+            font-weight: bold;
+        }
+
+        .logo span {
+            display: block;
+
+            font-size: 9px;
+
+            letter-spacing: 5px;
+
+            margin-top: 4px;
+
+            font-weight: normal;
+
+            color: #aa777b;
+        }
+
+        .back-button {
+            text-decoration: none;
+
+            color: #765b5b;
+
+            font-size: 15px;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.65);
+
+            transform: translateX(-4px);
+        }
+
+
+        /* =====================================================
+           CONTENEDOR PRINCIPAL
+        ===================================================== */
+
+        main {
+            width: 100%;
+
+            max-width: 1350px;
+
+            margin: auto;
+
+            padding: 10px 30px 50px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           INTRODUCCIÓN
+        ===================================================== */
+
+        .intro {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .small-title {
+            color: #b17d82;
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro h1 {
+            font-size: clamp(34px, 5vw, 58px);
+
+            font-weight: normal;
+
+            color: #644949;
+
+            line-height: 1.1;
+
+            margin-bottom: 14px;
+        }
+
+        .intro h1 span {
+            color: #b37e82;
+        }
+
+        .intro p {
+            max-width: 620px;
+
+            margin: auto;
+
+            line-height: 1.7;
+
+            color: #806969;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           ÁREA DE IMAGEN
+        ===================================================== */
+
+        .character-area {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            margin: 25px auto 30px;
+
+            min-height: 500px;
+
+            position: relative;
+        }
+
+        .character-area::before {
+            content: "";
+
+            position: absolute;
+
+            width: 470px;
+            height: 470px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(190, 137, 142, 0.22);
+
+            box-shadow:
+                0 0 0 25px rgba(255,255,255,0.16),
+                0 0 0 50px rgba(245,204,207,0.08);
+
+            z-index: -1;
+        }
+
+        .image-frame {
+            width: 350px;
+            height: 430px;
+
+            border-radius: 150px 150px 55px 55px;
+
+            padding: 8px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.9),
+                    rgba(247,207,210,0.65)
+                );
+
+            box-shadow:
+                0 20px 50px rgba(130, 90, 90, 0.13);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .image-frame::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 8px;
+
+            border-radius: 142px 142px 47px 47px;
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            pointer-events: none;
+
+            z-index: 3;
+        }
+
+        #personaje {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 142px 142px 47px 47px;
+
+            display: block;
+        }
+
+
+/* =====================================================
+   MINI DEMOSTRACIÓN DEL ALGORITMO
+===================================================== */
+
+.algorithm-demo {
+    position: absolute;
+
+    left: calc(50% + 190px);
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 245px;
+    min-height: 255px;
+
+    padding: 20px 18px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.88),
+            rgba(252,229,225,0.78)
+        );
+
+    border: 1px solid rgba(190, 143, 147, 0.30);
+
+    box-shadow:
+        0 12px 30px rgba(130,90,90,0.10);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s;
+
+    z-index: 4;
+}
+
+.algorithm-demo.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+.algorithm-title {
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #b17d82;
+
+    margin-bottom: 12px;
+}
+
+.algorithm-demo h3 {
+    text-align: center;
+
+    font-size: 17px;
+
+    font-weight: normal;
+
+    color: #705151;
+
+    margin-bottom: 15px;
+}
+
+.algorithm-step {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.60);
+
+    border: 1px solid rgba(205,153,158,0.16);
+
+    font-size: 11px;
+
+    color: #806969;
+
+    transition: 0.3s;
+}
+
+.algorithm-step.active {
+    background: rgba(249,211,215,0.65);
+
+    color: #694e50;
+
+    border-color: rgba(190,143,147,0.35);
+
+    transform: translateX(3px);
+}
+
+.step-number {
+    min-width: 21px;
+    height: 21px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.85);
+
+    color: #b17d82;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+.algorithm-result {
+    text-align: center;
+
+    margin-top: 11px;
+
+    font-size: 10px;
+
+    color: #a17b7d;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   BOTÓN PARA MOSTRAR EL ALGORITMO
+===================================================== */
+
+.algorithm-toggle-area {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 5px;
+}
+
+/* =====================================================
+   MINI VISOR DEL CÓDIGO DEL ALGORITMO
+===================================================== */
+
+.algorithm-demo {
+    position: absolute;
+
+    left: calc(50% + 190px);
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 270px;
+    height: 285px;
+
+    padding: 16px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.92),
+            rgba(252,229,225,0.82)
+        );
+
+    border: 1px solid rgba(190,143,147,0.30);
+
+    box-shadow:
+        0 12px 30px rgba(130,90,90,0.10);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s;
+
+    z-index: 4;
+
+    overflow: hidden;
+}
+
+.algorithm-demo.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+
+/* TÍTULO */
+
+.algorithm-title {
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    color: #b17d82;
+
+    margin-bottom: 5px;
+}
+
+
+.algorithm-demo h3 {
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: normal;
+
+    color: #705151;
+
+    margin-bottom: 10px;
+}
+
+
+/* VENTANA DEL CÓDIGO */
+
+.code-window {
+
+    width: 100%;
+
+    height: 188px;
+
+    padding: 12px 10px;
+
+    border-radius: 14px;
+
+    background: rgba(70,55,55,0.94);
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,0.12);
+}
+
+
+/* CADA LÍNEA */
+
+.code-line {
+
+    display: block;
+
+    padding: 3px 5px;
+
+    border-radius: 5px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    line-height: 1.45;
+
+    color: #f7eaea;
+
+    white-space: pre;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+
+
+/* LÍNEA ACTIVA */
+
+.code-line.active {
+
+    background: rgba(247,205,210,0.30);
+
+    color: #ffffff;
+}
+
+
+/* NÚMERO DE LÍNEA */
+
+.line-number {
+
+    display: inline-block;
+
+    width: 20px;
+
+    color: #bda5a5;
+
+    user-select: none;
+}
+
+
+/* RESULTADO */
+
+.algorithm-result {
+
+    text-align: center;
+
+    margin-top: 9px;
+
+    font-size: 9px;
+
+    color: #a17b7d;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.algorithm-toggle-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 5px;
+}
+
+.algorithm-toggle {
+
+    border: 1px solid rgba(190,143,147,0.32);
+
+    background: rgba(255,249,240,0.82);
+
+    color: #896b6b;
+
+    padding: 9px 18px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+.algorithm-toggle:hover {
+
+    background: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px rgba(130,90,90,0.10);
+}
+
+
+
+        /* =====================================================
+           ANIMACIONES DE LA IMAGEN
+        ===================================================== */
+
+        .fade-out {
+            animation: desaparecer 0.20s ease forwards;
+        }
+
+        .bounce-in {
+            animation: aparecerRebote 0.8s cubic-bezier(.22,1.4,.36,1);
+        }
+
+        @keyframes desaparecer {
+
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+        }
+
+        @keyframes aparecerRebote {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.72) translateY(25px);
+            }
+
+            45% {
+                opacity: 1;
+                transform: scale(1.05) translateY(-7px);
+            }
+
+            70% {
+                transform: scale(0.98) translateY(3px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           TEXTO CENTRAL
+        ===================================================== */
+
+        .instruction {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .instruction h2 {
+            font-size: 25px;
+
+            font-weight: normal;
+
+            color: #705151;
+
+            margin-bottom: 7px;
+        }
+
+        .instruction p {
+            font-size: 13px;
+
+            color: #997d7d;
+        }
+
+
+        /* =====================================================
+           OPCIONES
+        ===================================================== */
+
+        .options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 14px;
+
+            margin-top: 20px;
+        }
+
+        .option {
+            border: 1px solid rgba(205, 153, 158, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.78),
+                    rgba(250,222,221,0.65)
+                );
+
+            border-radius: 22px;
+
+            padding: 20px 12px;
+
+            min-height: 105px;
+
+            cursor: pointer;
+
+            color: #6d5151;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            box-shadow:
+                0 8px 22px rgba(130, 90, 90, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .option:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 14px 28px rgba(130, 90, 90, 0.14);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.95),
+                    rgba(249,211,215,0.8)
+                );
+        }
+
+        .option:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .option .symbol {
+            display: block;
+
+            font-size: 22px;
+
+            color: #b17b80;
+
+            margin-bottom: 8px;
+        }
+
+        .option strong {
+            display: block;
+
+            font-size: 16px;
+
+            font-weight: normal;
+
+            margin-bottom: 5px;
+        }
+
+        .option small {
+            display: block;
+
+            font-size: 11px;
+
+            color: #a48585;
+
+            line-height: 1.4;
+        }
+
+
+        /* =====================================================
+           BOTÓN IMAGEN INICIAL
+        ===================================================== */
+
+        .reset-area {
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 18px;
+        }
+
+        .reset-button {
+            border: 1px solid rgba(190, 143, 147, 0.35);
+
+            background: rgba(255, 249, 240, 0.78);
+
+            color: #896b6b;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .reset-button:hover {
+            background: #fff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 18px rgba(130,90,90,0.10);
+        }
+
+
+        /* =====================================================
+           RESULTADO DEL ALGORITMO
+        ===================================================== */
+
+        .result {
+            text-align: center;
+
+            margin-top: 25px;
+
+            min-height: 25px;
+
+            color: #9a7477;
+
+            font-size: 13px;
+
+            letter-spacing: 0.5px;
+        }
+
+        #resultado {
+            transition: opacity 0.3s ease;
+        }
+
+
+        /* =====================================================
+           PIE DE PÁGINA
+        ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding: 25px 20px 30px;
+
+            color: #b18c8c;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+        footer::before {
+            content: "✦  ─────────  ✦";
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #d6a5a8;
+
+            letter-spacing: 3px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .options {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .character-area {
+                min-height: 390px;
+            }
+
+            .image-frame {
+                width: 270px;
+                height: 350px;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — CELULAR
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 20px 5%;
+            }
+
+            .logo {
+                font-size: 15px;
+
+                letter-spacing: 3px;
+            }
+
+            .logo span {
+                font-size: 7px;
+
+                letter-spacing: 3px;
+            }
+
+            .back-button {
+                font-size: 12px;
+            }
+
+            main {
+                padding:
+                    5px 18px 35px;
+            }
+
+            .intro {
+                margin-top: 10px;
+            }
+
+            .intro h1 {
+                font-size: 35px;
+            }
+
+            .intro p {
+                font-size: 13px;
+            }
+
+            .character-area {
+                min-height: 350px;
+
+                margin-top: 15px;
+            }
+
+            .character-area::before {
+                width: 330px;
+                height: 330px;
+            }
+
+            .image-frame {
+                width: 220px;
+                height: 290px;
+            }
+
+            .instruction h2 {
+                font-size: 21px;
+            }
+
+            .options {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 10px;
+            }
+
+            .option {
+                min-height: 100px;
+
+                padding: 16px 8px;
+            }
+
+            .option strong {
+                font-size: 14px;
+            }
+
+            .option small {
+                font-size: 10px;
+            }
+
+            .reset-button {
+                width: 100%;
+
+                max-width: 280px;
+            }
+
+        }
+
+
+        /* =====================================================
+           CELULAR MUY PEQUEÑO
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .image-frame {
+                width: 200px;
+                height: 265px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Decoraciones -->
+    <div class="sakura sakura-1">✿</div>
+    <div class="sakura sakura-2">✧</div>
+    <div class="sakura sakura-3">❀</div>
+    <div class="sakura sakura-4">✿</div>
+
+
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
+
+    <header>
+
+        <a href="pagina web de saikio algorithm.html" class="logo">
+            SAIKIO
+            <span>ALGORITHM</span>
+        </a>
+
+        <a href="algoritmos.html" class="back-button">
+            ← Volver a las opciones
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="intro">
+
+            <div class="small-title">
+                SAIKIO ALGORITHM · INTERACTIVE LAB
+            </div>
+
+            <h1>
+                Cada respuesta,
+                <span>una expresión.</span>
+            </h1>
+
+            <p>
+                Selecciona un comentario y observa cómo nuestro
+                algoritmo identifica la opción elegida y muestra
+                el personaje correspondiente.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             IMAGEN DEL PERSONAJE
+        ================================================== -->
+
+<section class="character-area">
+
+    <div class="image-frame">
+
+        <img
+            id="personaje"
+            src="imagenes/personaje-inicial.png"
+            alt="Personaje inicial"
+        >
+
+    </div>
+
+
+    <!-- MINI DEMOSTRACIÓN DEL ALGORITMO -->
+
+<!-- =================================================
+     MINI VISOR DEL CÓDIGO
+================================================== -->
+
+<div
+    class="algorithm-demo"
+    id="algorithmDemo"
+>
+
+    <div class="algorithm-title">
+        SAIKIO · ALGORITHM
+    </div>
+
+    <h3>
+        Código de selección
+    </h3>
+
+
+    <div class="code-window">
+
+
+        <span
+            class="code-line"
+            id="line1"
+        ><span class="line-number">01</span>function cambiarPersonaje(opcion) {</span>
+
+
+        <span
+            class="code-line"
+            id="line2"
+        ><span class="line-number">02</span>    personaje.src =</span>
+
+
+        <span
+            class="code-line"
+            id="line3"
+        ><span class="line-number">03</span>        imagenes[opcion];</span>
+
+
+        <span
+            class="code-line"
+            id="line4"
+        ><span class="line-number">04</span></span>
+
+
+        <span
+            class="code-line"
+            id="line5"
+        ><span class="line-number">05</span>    resultado.textContent =</span>
+
+
+        <span
+            class="code-line"
+            id="line6"
+        ><span class="line-number">06</span>        nombres[opcion];</span>
+
+
+        <span
+            class="code-line"
+            id="line7"
+        ><span class="line-number">07</span>}</span>
+
+
+    </div>
+
+
+    <div
+        class="algorithm-result"
+        id="algorithmResult"
+    >
+
+        Selecciona una opción para ejecutar.
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     BOTÓN DEL VISUALIZADOR
+================================================== -->
+
+<div class="algorithm-toggle-area">
+
+    <button
+        class="algorithm-toggle"
+        id="algorithmToggle"
+        onclick="mostrarAlgoritmo()"
+    >
+
+        ✦ Ver demostración del algoritmo
+
+    </button>
+
+</div>
+
+
+
+        <!-- =================================================
+             INSTRUCCIÓN
+        ================================================== -->
+
+        <section class="instruction">
+
+            <h2>
+                Elige un comentario
+            </h2>
+
+            <p>
+                La respuesta seleccionada determinará la imagen mostrada.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CINCO OPCIONES
+        ================================================== -->
+
+        <section class="options">
+
+
+            <!-- OPCIÓN 1 -->
+
+            <button
+                class="option"
+                onclick="cambiarPersonaje(1)"
+            >
+
+                <span class="symbol">✿</span>
+
+                <strong>
+                    ¡Hola!
+                </strong>
+
+            </button>
+
+
+
+            <!-- OPCIÓN 2 -->
+
+            <button
+                class="option"
+                onclick="cambiarPersonaje(2)"
+            >
+
+                <span class="symbol">✧</span>
+
+                <strong>
+                    ¿Te gusta estar aqui?
+                </strong>
+
+            </button>
+
+
+
+            <!-- OPCIÓN 3 -->
+
+            <button
+                class="option"
+                onclick="cambiarPersonaje(3)"
+            >
+
+                <span class="symbol">♡</span>
+
+                <strong>
+                    ¿Tiene Instagram?
+                </strong>
+
+            </button>
+
+
+
+            <!-- OPCIÓN 4 -->
+
+            <button
+                class="option"
+                onclick="cambiarPersonaje(4)"
+            >
+
+                <span class="symbol">✦</span>
+
+                <strong>
+                    ¿Quieres tomar un té?
+                </strong>
+
+            </button>
+
+
+
+            <!-- OPCIÓN 5 -->
+
+            <button
+                class="option"
+                onclick="cambiarPersonaje(5)"
+            >
+
+                <span class="symbol">❀</span>
+
+                <strong>
+                    Te ves un poco despeinada
+                </strong>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VOLVER A IMAGEN INICIAL
+        ================================================== -->
+
+        <div class="reset-area">
+
+            <button
+                class="reset-button"
+                onclick="imagenInicial()"
+            >
+
+                ↻ &nbsp; Volver a la imagen inicial
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULTADO
+        ================================================== -->
+
+        <div class="result">
+
+            <span id="resultado">
+                Imagen principal activa
+            </span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        SAIKIO ALGORITHM · DIGITAL SOLUTIONS
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT — ALGORITMO
+    ====================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           1. OBTENER LA IMAGEN
+        ================================================== */
+
+        const personaje =
+            document.getElementById("personaje");
+
+
+        const resultado =
+            document.getElementById("resultado");
+
+
+
+        /* =================================================
+           2. LAS 6 IMÁGENES DEL ALGORITMO
+           
+           0 = imagen inicial
+           1 = respuesta 1
+           2 = respuesta 2
+           3 = respuesta 3
+           4 = respuesta 4
+           5 = respuesta 5
+        ================================================== */
+
+        const imagenes = {
+
+            0: "imagenes/personaje-inicial.png",
+
+            1: "imagenes/personaje-1.png",
+
+            2: "imagenes/personaje-2.png",
+
+            3: "imagenes/personaje-3.png",
+
+            4: "imagenes/personaje-4.png",
+
+            5: "imagenes/personaje-5.png"
+
+        };
+
+
+
+        /* =================================================
+           3. NOMBRES DE LAS RESPUESTAS
+        ================================================== */
+
+        const nombres = {
+
+            1: "¡Hola!",
+
+            2: "¿Te gusta estar aqui?",
+
+            3: "¿Tiene Instagram?",
+
+            4: "¿Quieres tomar un té?",
+
+            5: "Te ves un poco despeinada"
+
+        };
+
+
+
+        /* =================================================
+           4. FUNCIÓN PRINCIPAL DEL ALGORITMO
+        ================================================== */
+
+        function cambiarPersonaje(opcion) {
+
+            ejecutarDemostracion(opcion);
+
+
+            /* ---------------------------------------------
+               PASO 1:
+               La imagen actual desaparece
+            --------------------------------------------- */
+
+            personaje.classList.remove("bounce-in");
+
+            personaje.classList.add("fade-out");
+
+
+
+            /* ---------------------------------------------
+               PASO 2:
+               Esperamos a que termine la desaparición
+            --------------------------------------------- */
+
+            setTimeout(function() {
+
+
+                /* -----------------------------------------
+                   PASO 3:
+                   Seleccionamos la imagen correspondiente
+                ------------------------------------------ */
+
+                personaje.src =
+                    imagenes[opcion];
+
+
+
+                /* -----------------------------------------
+                   PASO 4:
+                   Cambiamos el texto del resultado
+                ------------------------------------------ */
+
+                resultado.textContent =
+                    "Respuesta seleccionada: "
+                    + nombres[opcion];
+
+
+
+                /* -----------------------------------------
+                   PASO 5:
+                   Quitamos la animación anterior
+                ------------------------------------------ */
+
+                personaje.classList.remove("fade-out");
+
+
+
+                /* -----------------------------------------
+                   PASO 6:
+                   La nueva imagen aparece con rebote
+                ------------------------------------------ */
+
+                void personaje.offsetWidth;
+
+                personaje.classList.add("bounce-in");
+
+
+            }, 250);
+
+        }
+
+
+
+        /* =================================================
+           5. FUNCIÓN PARA VOLVER A LA IMAGEN INICIAL
+        ================================================== */
+
+        function imagenInicial() {
+
+
+            personaje.classList.remove("bounce-in");
+
+            personaje.classList.add("fade-out");
+
+
+            setTimeout(function() {
+
+
+                personaje.src =
+                    imagenes[0];
+
+
+                resultado.textContent =
+                    "Imagen principal activa";
+
+
+                personaje.classList.remove("fade-out");
+
+
+                void personaje.offsetWidth;
+
+                personaje.classList.add("bounce-in");
+
+
+            }, 250);
+
+        }
+
+
+/* =================================================
+   VISUALIZADOR DEL ALGORITMO
+================================================= */
+
+const algorithmDemo =
+    document.getElementById("algorithmDemo");
+
+const algorithmToggle =
+    document.getElementById("algorithmToggle");
+
+const algorithmResult =
+    document.getElementById("algorithmResult");
+
+
+function mostrarAlgoritmo() {
+
+    const visible =
+        algorithmDemo.classList.contains("visible");
+
+
+    if (visible) {
+
+        algorithmDemo.classList.remove("visible");
+
+        algorithmToggle.textContent =
+            "✦ Ver demostración del algoritmo";
+
+    } else {
+
+        algorithmDemo.classList.add("visible");
+
+        algorithmToggle.textContent =
+            "× Ocultar demostración";
+
+    }
+
+}
+
+
+/* =================================================
+   EJECUTAR DEMOSTRACIÓN DEL CÓDIGO
+================================================= */
+
+function ejecutarDemostracion(opcion) {
+
+    const lineas = [
+        "line1",
+        "line2",
+        "line3",
+        "line5",
+        "line6",
+        "line7"
+    ];
+
+
+    /* Primero limpiamos las líneas */
+
+    lineas.forEach(function(id) {
+
+        document
+            .getElementById(id)
+            .classList.remove("active");
+
+    });
+
+
+    /* ---------------------------------------------
+       PASO 1 — ENTRADA
+    --------------------------------------------- */
+
+    document
+        .getElementById("line1")
+        .classList.add("active");
+
+    algorithmResult.textContent =
+        "Entrada: opción " + opcion;
+
+
+    /* ---------------------------------------------
+       PASO 2 — SELECCIÓN
+    --------------------------------------------- */
+
+    setTimeout(function() {
+
+        document
+            .getElementById("line1")
+            .classList.remove("active");
+
+        document
+            .getElementById("line2")
+            .classList.add("active");
+
+        document
+            .getElementById("line3")
+            .classList.add("active");
+
+        algorithmResult.textContent =
+            "Seleccionando imagen correspondiente...";
+
+    }, 500);
+
+
+    /* ---------------------------------------------
+       PASO 3 — RESULTADO
+    --------------------------------------------- */
+
+    setTimeout(function() {
+
+        document
+            .getElementById("line2")
+            .classList.remove("active");
+
+        document
+            .getElementById("line3")
+            .classList.remove("active");
+
+        document
+            .getElementById("line5")
+            .classList.add("active");
+
+        document
+            .getElementById("line6")
+            .classList.add("active");
+
+        algorithmResult.textContent =
+            "Resultado: personaje-" + opcion + ".png";
+
+    }, 1000);
+
+}
+
+
+    </script>
+
+
+</body>
+</html>

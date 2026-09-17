@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff7fb;
+    color: #4a3b43;
+}
+
+
+/* ================= ETIQUETAS VISIBLES ================= */
+
+.etiqueta {
+    display: inline-block;
+    background: #4a3b43;
+    color: white;
+    padding: 4px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 8px;
+    font-family: monospace;
+}
+
+
+/* ================= ENCABEZADO ================= */
+
+header {
+    position: relative;
+    background: white;
+    border-bottom: 2px solid #e9cbd9;
+}
+
+.banner {
+    height: 230px;
+
+    background:
+        linear-gradient(
+            rgba(70, 40, 60, 0.25),
+            rgba(70, 40, 60, 0.25)
+        ),
+        url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-texto {
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 5px #333;
+}
+
+.banner-texto h1 {
+    font-size: 45px;
+}
+
+.banner-texto p {
+    font-size: 18px;
+}
+
+
+/* ================= MENÚ ================= */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 15px;
+    background: #f3dce7;
+}
+
+nav a {
+    color: #513c48;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b76b91;
+}
+
+
+/* ================= CUENTA ================= */
+
+.cuenta {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+.icono {
+    font-size: 25px;
+}
+
+.login {
+    border: none;
+    padding: 9px 15px;
+    border-radius: 20px;
+    background: white;
+    color: #8c5271;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* ================= CUERPO ================= */
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+
+/* ================= BUSCADOR ================= */
+
+.buscador {
+    text-align: center;
+    padding: 30px;
+}
+
+.buscador h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.barra {
+    display: flex;
+    max-width: 650px;
+    margin: auto;
+}
+
+.barra input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #d9a8bf;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 16px;
+}
+
+.barra button {
+    width: 60px;
+    border: none;
+    background: #b76b91;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* ================= SUGERENCIAS ================= */
+
+#sugerencias {
+    max-width: 650px;
+    margin: auto;
+    text-align: left;
+}
+
+.sugerencia {
+    background: white;
+    padding: 10px 15px;
+    border: 1px solid #ead2df;
+    cursor: pointer;
+}
+
+.sugerencia:hover {
+    background: #f8e8f0;
+}
+
+
+/* ================= NOVEDADES ================= */
+
+.novedades {
+    margin-top: 30px;
+}
+
+.novedades h2 {
+    margin-bottom: 20px;
+}
+
+.libro {
+    display: flex;
+    gap: 30px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.libro img {
+    width: 190px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.informacion {
+    padding: 15px;
+}
+
+.informacion h3 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.autor {
+    color: #a56884;
+    margin-bottom: 15px;
+}
+
+.estrellas {
+    color: #e4a92d;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.calificacion {
+    font-size: 14px;
+}
+
+.ver-mas {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #b76b91;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #493842;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 20px;
+}
+
+.redes a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.redes a:hover {
+    color: #f0b9d3;
+}
+
+.copyright {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .banner-texto h1 {
+        font-size: 32px;
+    }
+
+    .cuenta {
+        position: static;
+        justify-content: center;
+        padding: 10px;
+        background: #493842;
+    }
+
+    .libro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .redes {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
