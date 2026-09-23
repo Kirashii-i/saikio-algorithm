@@ -1405,7 +1405,52 @@ ideas."
 
 
     <script src="scrippt.js"></script>
+   <!-- ... Todo el contenido largo de tu página web ... -->
 
+    <!-- Aquí pegas el código JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- 1. LÓGICA DEL MENÚ HAMBURGUESA ---
+            const mobileMenuBtn = document.getElementById("mobileMenu");
+            const navigation = document.getElementById("navigation");
+
+            if (mobileMenuBtn && navigation) {
+                mobileMenuBtn.addEventListener("click", () => {
+                    navigation.classList.toggle("active");
+                });
+            }
+
+            // --- 2. LÓGICA DE CAMBIO DE IDIOMA (ES / EN) ---
+            const languageBtn = document.getElementById("languageButton");
+            const searchInput = document.getElementById("searchInput");
+            let currentLang = "es";
+
+            if (languageBtn) {
+                languageBtn.addEventListener("click", () => {
+                    currentLang = currentLang === "es" ? "en" : "es";
+                    languageBtn.textContent = currentLang === "es" ? "EN" : "ES";
+
+                    const elementsToTranslate = document.querySelectorAll("[data-es][data-en]");
+                    elementsToTranslate.forEach(el => {
+                        if (currentLang === "en") {
+                            el.textContent = el.getAttribute("data-en");
+                        } else {
+                            el.textContent = el.getAttribute("data-es");
+                        }
+                    });
+
+                    if (searchInput) {
+                        if (currentLang === "en") {
+                            searchInput.placeholder = searchInput.getAttribute("data-placeholder-en");
+                        } else {
+                            searchInput.placeholder = searchInput.getAttribute("data-placeholder-es");
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
