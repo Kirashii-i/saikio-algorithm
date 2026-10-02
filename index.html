@@ -13,43 +13,7 @@
     -->
     <link rel="icon" href="imagenes/logo.png">
 
-
-    <script>
-
-    /*
-    ==========================================
-    CONFIGURACIÓN DE SAIKIO ALGORITHM
-    ==========================================
-    */
-
-    const cssActivo =
-        localStorage.getItem("saikioCSS") === "true";
-
-    const jsActivo =
-        localStorage.getItem("saikioJS") === "true";
-
-
-    /*
-    ==========================================
-    CARGAR CSS
-    ==========================================
-    */
-
-    if (cssActivo) {
-
-        const hojaCSS =
-            document.createElement("link");
-
-        hojaCSS.rel = "stylesheet";
-
-        hojaCSS.href = "styleee.css";
-
-        document.head.appendChild(hojaCSS);
-
-    }
-
-</script>
-
+    <link rel="stylesheet" href="styleee.css">
     
 </head>
 
@@ -1494,30 +1458,7 @@ ideas."
         });
     </script>
 
-<script>
-
-    /*
-    ==========================================
-    CARGAR JAVASCRIPT DE SAIKIO
-    ==========================================
-    */
-
-    const jsActivo =
-        localStorage.getItem("saikioJS") === "true";
-
-    if (jsActivo) {
-
-        const scriptJS =
-            document.createElement("script");
-
-        scriptJS.src = "scrippt.js";
-
-        document.body.appendChild(scriptJS);
-
-    }
-
-</script>
-    
+    <script src="scrippt.js"></script>
     
 </body>
 
