@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Herramientas | Saikio Algorithm</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+            background: #f7f1eb;
+            color: #4b403b;
+        }
+
+        header {
+            padding: 22px 7%;
+            background: rgba(255, 255, 255, 0.75);
+            border-bottom: 1px solid rgba(120, 100, 90, 0.15);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #4b403b;
+            text-decoration: none;
+            font-size: 21px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .volver {
+            color: #806f66;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .volver:hover {
+            color: #bd8494;
+        }
+
+        main {
+            width: 90%;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .titulo h1 {
+            font-size: 38px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .titulo p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            color: #776b65;
+            font-size: 15px;
+        }
+
+        /* MENSAJE */
+
+        .estado {
+            width: fit-content;
+            max-width: 90%;
+            margin: 0 auto 30px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: #eee5df;
+            color: #766963;
+            text-align: center;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .estado.completo {
+            background: #ead8dc;
+            color: #694f57;
+        }
+
+        /* PANEL */
+
+        .panel {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(130, 110, 100, 0.12);
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(90, 70, 60, 0.08);
+        }
+
+        .panel h2 {
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            text-align: center;
+            color: #857872;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* BOTONES */
+
+        .botones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .boton {
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #d8c9c3;
+            background: #faf7f4;
+            color: #665a54;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            transform: translateY(-2px);
+            border-color: #cda5ae;
+        }
+
+        .boton.activo {
+            background: #ead6db;
+            border-color: #c998a4;
+            color: #684d55;
+            box-shadow: 0 6px 18px rgba(150, 100, 115, 0.15);
+        }
+
+        .icono {
+            display: block;
+            font-size: 22px;
+            margin-bottom: 9px;
+        }
+
+        /* EXPLICACIÓN */
+
+        .info {
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(247, 241, 237, 0.8);
+        }
+
+        .info p {
+            text-align: center;
+            color: #81746e;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* BOTÓN PARA IR A LA PÁGINA */
+
+        .visitar {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 13px 27px;
+            border-radius: 25px;
+            background: #e6d3d7;
+            color: #624d54;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .visitar:hover {
+            background: #d9bdc4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 45px 20px 30px;
+            color: #91837d;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+
+            .botones {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo h1 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="nav">
+
+            <a href="index.html" class="logo">
+                Saikio Algorithm
+            </a>
+
+            <a href="index.html" class="volver">
+                ← Volver al inicio
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="titulo">
+
+            <h1>Configuración de la página</h1>
+
+            <p>
+                Selecciona los componentes que deseas incorporar
+                a la experiencia de Saikio Algorithm y observa
+                cómo cambia la página principal.
+            </p>
+
+        </section>
+
+
+        <div id="estado" class="estado">
+            Configuración actual: solo HTML
+        </div>
+
+
+        <section class="panel">
+
+            <h2>Componentes de desarrollo</h2>
+
+            <p class="descripcion">
+                Activa o desactiva cada tecnología según la demostración que deseas realizar.
+            </p>
+
+
+            <div class="botones">
+
+                <button
+                    id="btnHTML"
+                    class="boton activo"
+                    onclick="soloHTML()">
+
+                    <span class="icono">◇</span>
+
+                    Solo HTML
+
+                </button>
+
+
+                <button
+                    id="btnCSS"
+                    class="boton"
+                    onclick="alternarCSS()">
+
+                    <span class="icono">✦</span>
+
+                    Agregar CSS
+
+                </button>
+
+
+                <button
+                    id="btnJS"
+                    class="boton"
+                    onclick="alternarJS()">
+
+                    <span class="icono">⌁</span>
+
+                    Agregar JS
+
+                </button>
+
+            </div>
+
+
+            <div class="info">
+
+                <p>
+                    HTML proporciona la estructura de la página.
+                    CSS define su presentación visual y JavaScript
+                    incorpora comportamiento e interacción.
+                </p>
+
+            </div>
+
+
+            <a href="index.html" class="visitar">
+                Ver página principal
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Saikio Algorithm · Desarrollo de Software
+    </footer>
+
+
+    <script>
+
+        /*
+        ==========================================
+        LEER CONFIGURACIÓN GUARDADA
+        ==========================================
+        */
+
+        let cssActivo =
+            localStorage.getItem("saikioCSS") === "true";
+
+        let jsActivo =
+            localStorage.getItem("saikioJS") === "true";
+
+
+        /*
+        ==========================================
+        ELEMENTOS
+        ==========================================
+        */
+
+        const btnHTML =
+            document.getElementById("btnHTML");
+
+        const btnCSS =
+            document.getElementById("btnCSS");
+
+        const btnJS =
+            document.getElementById("btnJS");
+
+        const estado =
+            document.getElementById("estado");
+
+
+        /*
+        ==========================================
+        ACTUALIZAR INTERFAZ
+        ==========================================
+        */
+
+        function actualizarInterfaz() {
+
+            /*
+            BOTÓN CSS
+            */
+
+            if (cssActivo) {
+
+                btnCSS.classList.add("activo");
+
+            } else {
+
+                btnCSS.classList.remove("activo");
+
+            }
+
+
+            /*
+            BOTÓN JS
+            */
+
+            if (jsActivo) {
+
+                btnJS.classList.add("activo");
+
+            } else {
+
+                btnJS.classList.remove("activo");
+
+            }
+
+
+            /*
+            HTML SIEMPRE ESTÁ ACTIVO
+            */
+
+            btnHTML.classList.add("activo");
+
+
+            /*
+            MENSAJE
+            */
+
+            if (cssActivo && jsActivo) {
+
+                estado.textContent =
+                    "La experiencia completa se encuentra activada.";
+
+                estado.classList.add("completo");
+
+            }
+
+            else if (cssActivo) {
+
+                estado.textContent =
+                    "La estructura HTML y la presentación CSS se encuentran activas.";
+
+                estado.classList.remove("completo");
+
+            }
+
+            else if (jsActivo) {
+
+                estado.textContent =
+                    "La estructura HTML y la interacción JavaScript se encuentran activas.";
+
+                estado.classList.remove("completo");
+
+            }
+
+            else {
+
+                estado.textContent =
+                    "Configuración actual: solo HTML";
+
+                estado.classList.remove("completo");
+
+            }
+
+        }
+
+
+        /*
+        ==========================================
+        SOLO HTML
+        ==========================================
+        */
+
+        function soloHTML() {
+
+            cssActivo = false;
+            jsActivo = false;
+
+            localStorage.setItem(
+                "saikioCSS",
+                "false"
+            );
+
+            localStorage.setItem(
+                "saikioJS",
+                "false"
+            );
+
+            actualizarInterfaz();
+
+        }
+
+
+        /*
+        ==========================================
+        ACTIVAR / DESACTIVAR CSS
+        ==========================================
+        */
+
+        function alternarCSS() {
+
+            cssActivo = !cssActivo;
+
+            localStorage.setItem(
+                "saikioCSS",
+                cssActivo
+            );
+
+            actualizarInterfaz();
+
+        }
+
+
+        /*
+        ==========================================
+        ACTIVAR / DESACTIVAR JAVASCRIPT
+        ==========================================
+        */
+
+        function alternarJS() {
+
+            jsActivo = !jsActivo;
+
+            localStorage.setItem(
+                "saikioJS",
+                jsActivo
+            );
+
+            actualizarInterfaz();
+
+        }
+
+
+        /*
+        ==========================================
+        INICIAR
+        ==========================================
+        */
+
+        actualizarInterfaz();
+
+    </script>
+
+</body>
+
+</html>
