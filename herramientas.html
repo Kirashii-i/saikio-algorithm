@@ -1,529 +1,796 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Herramientas | Saikio Algorithm</title>
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Herramientas | Saikio Algorithm</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            min-height: 100vh;
-            font-family: "Segoe UI", sans-serif;
-            background: #f7f1eb;
-            color: #4b403b;
-        }
+<style>
 
-        header {
-            padding: 22px 7%;
-            background: rgba(255, 255, 255, 0.75);
-            border-bottom: 1px solid rgba(120, 100, 90, 0.15);
-        }
+    /* =====================================================
+       ESTILOS FIJOS DE LA PÁGINA DE HERRAMIENTAS
+       ===================================================== */
 
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        .logo {
-            color: #4b403b;
-            text-decoration: none;
-            font-size: 21px;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
+    body {
+        min-height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+        background: #f7f1eb;
+        color: #4b403b;
+        overflow-x: hidden;
+    }
 
-        .volver {
-            color: #806f66;
-            text-decoration: none;
-            font-size: 14px;
-        }
 
-        .volver:hover {
-            color: #bd8494;
-        }
+    /* =====================================================
+       ENCABEZADO
+       ===================================================== */
 
-        main {
-            width: 90%;
-            max-width: 950px;
-            margin: auto;
-        }
+    header {
+        padding: 22px 7%;
+        background: rgba(255, 255, 255, 0.75);
+        border-bottom: 1px solid rgba(120, 100, 90, 0.15);
+        position: relative;
+        z-index: 10;
+    }
 
-        .titulo {
-            text-align: center;
-            padding: 65px 20px 35px;
-        }
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .titulo h1 {
-            font-size: 38px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
+    .logo {
+        color: #4b403b;
+        text-decoration: none;
+        font-size: 21px;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
 
-        .titulo p {
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.8;
-            color: #776b65;
-            font-size: 15px;
-        }
+    .volver {
+        color: #806f66;
+        text-decoration: none;
+        font-size: 14px;
+    }
 
-        /* MENSAJE */
+    .volver:hover {
+        color: #bd8494;
+    }
 
-        .estado {
-            width: fit-content;
-            max-width: 90%;
-            margin: 0 auto 30px;
-            padding: 12px 25px;
-            border-radius: 30px;
-            background: #eee5df;
-            color: #766963;
-            text-align: center;
-            font-size: 14px;
-            transition: 0.3s;
-        }
 
-        .estado.completo {
-            background: #ead8dc;
-            color: #694f57;
-        }
+    /* =====================================================
+       FONDO DE DEMOSTRACIÓN
+       ===================================================== */
 
-        /* PANEL */
+    .zona-demo {
+        min-height: calc(100vh - 80px);
+        position: relative;
+        padding: 60px 20px 80px;
+        transition: all 0.5s ease;
+    }
 
-        .panel {
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(130, 110, 100, 0.12);
-            border-radius: 22px;
-            padding: 35px;
-            box-shadow: 0 12px 35px rgba(90, 70, 60, 0.08);
-        }
 
-        .panel h2 {
-            text-align: center;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
+    /* =====================================================
+       CONTENIDO DEL FONDO
+       ===================================================== */
 
-        .descripcion {
-            text-align: center;
-            color: #857872;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
+    .contenido-demo {
+        width: 90%;
+        max-width: 950px;
+        margin: auto;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
 
-        /* BOTONES */
+    .contenido-demo h1 {
+        font-size: 42px;
+        font-weight: 500;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+
+    .contenido-demo .subtitulo {
+        max-width: 650px;
+        margin: auto;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #776b65;
+    }
+
+
+    /* =====================================================
+       CUADRO DE BOTONES
+       
+       ESTE CUADRO NO CAMBIA.
+       ===================================================== */
+
+    .panel-control {
+        width: 90%;
+        max-width: 950px;
+        margin: 40px auto;
+        padding: 35px;
+
+        background: rgba(255, 255, 255, 0.75);
+
+        border: 1px solid rgba(130, 110, 100, 0.12);
+        border-radius: 22px;
+
+        box-shadow:
+            0 12px 35px rgba(90, 70, 60, 0.08);
+
+        position: relative;
+        z-index: 5;
+    }
+
+    .panel-control h2 {
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 10px;
+        font-size: 21px;
+    }
+
+    .descripcion {
+        text-align: center;
+        color: #857872;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+
+    /* =====================================================
+       BOTONES
+       ===================================================== */
+
+    .botones {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .boton {
+        padding: 20px;
+        border-radius: 15px;
+
+        border: 1px solid #d8c9c3;
+        background: #faf7f4;
+
+        color: #665a54;
+
+        cursor: pointer;
+
+        font-family: inherit;
+        font-size: 14px;
+
+        transition: all 0.3s ease;
+    }
+
+    .boton:hover {
+        transform: translateY(-2px);
+        border-color: #cda5ae;
+    }
+
+    .boton.activo {
+        background: #ead6db;
+        border-color: #c998a4;
+        color: #684d55;
+
+        box-shadow:
+            0 6px 18px rgba(150, 100, 115, 0.15);
+    }
+
+    .icono {
+        display: block;
+        font-size: 22px;
+        margin-bottom: 9px;
+    }
+
+
+    /* =====================================================
+       MENSAJE DE ESTADO
+       ===================================================== */
+
+    .estado {
+        width: fit-content;
+        max-width: 90%;
+
+        margin: 0 auto 25px;
+
+        padding: 12px 25px;
+
+        border-radius: 30px;
+
+        background: #eee5df;
+        color: #766963;
+
+        text-align: center;
+        font-size: 14px;
+
+        transition: all 0.4s ease;
+    }
+
+    .estado.completo {
+        background: #ead8dc;
+        color: #694f57;
+
+        box-shadow:
+            0 5px 20px rgba(130, 90, 100, 0.12);
+    }
+
+
+    /* =====================================================
+       ELEMENTOS QUE CAMBIARÁN
+       ===================================================== */
+
+    .resultado {
+        width: 90%;
+        max-width: 950px;
+
+        margin: 35px auto 0;
+
+        transition: all 0.5s ease;
+    }
+
+
+    /* SOLO HTML */
+
+    .modo-html {
+        background: transparent;
+        border: none;
+        padding: 20px;
+    }
+
+    .modo-html .elemento-decorativo {
+        display: none;
+    }
+
+
+    /* HTML + CSS */
+
+    .modo-css {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 25px;
+        padding: 45px;
+        border: 1px solid rgba(130, 110, 100, 0.12);
+
+        box-shadow:
+            0 15px 40px rgba(90, 70, 60, 0.08);
+    }
+
+    .modo-css .elemento-decorativo {
+        display: block;
+    }
+
+
+    /* =====================================================
+       DECORACIÓN
+       ===================================================== */
+
+    .elemento-decorativo {
+        display: none;
+        transition: all 0.5s ease;
+    }
+
+    .flor {
+        font-size: 25px;
+        margin-bottom: 20px;
+        opacity: 0.75;
+    }
+
+    .linea {
+        width: 70px;
+        height: 1px;
+        background: #d6b7bd;
+        margin: 25px auto;
+    }
+
+
+    /* =====================================================
+       JAVASCRIPT ACTIVO
+       ===================================================== */
+
+    .js-indicador {
+        display: none;
+        margin-top: 25px;
+        padding: 15px 22px;
+        border-radius: 14px;
+        background: #f0e3d9;
+        color: #735e54;
+        font-size: 14px;
+    }
+
+    .js-activo .js-indicador {
+        display: block;
+    }
+
+
+    /* =====================================================
+       PIE
+       ===================================================== */
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        color: #91837d;
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 700px) {
 
         .botones {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            grid-template-columns: 1fr;
         }
 
-        .boton {
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #d8c9c3;
-            background: #faf7f4;
-            color: #665a54;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 14px;
-            transition: 0.3s;
+        .contenido-demo h1 {
+            font-size: 31px;
         }
 
-        .boton:hover {
-            transform: translateY(-2px);
-            border-color: #cda5ae;
-        }
-
-        .boton.activo {
-            background: #ead6db;
-            border-color: #c998a4;
-            color: #684d55;
-            box-shadow: 0 6px 18px rgba(150, 100, 115, 0.15);
-        }
-
-        .icono {
-            display: block;
-            font-size: 22px;
-            margin-bottom: 9px;
-        }
-
-        /* EXPLICACIÓN */
-
-        .info {
-            margin-top: 25px;
+        .panel-control {
             padding: 25px;
-            border-radius: 18px;
-            background: rgba(247, 241, 237, 0.8);
         }
 
-        .info p {
-            text-align: center;
-            color: #81746e;
-            font-size: 14px;
-            line-height: 1.7;
-        }
+    }
 
-        /* BOTÓN PARA IR A LA PÁGINA */
+</style>
+```
 
-        .visitar {
-            display: block;
-            width: fit-content;
-            margin: 30px auto 0;
-            padding: 13px 27px;
-            border-radius: 25px;
-            background: #e6d3d7;
-            color: #624d54;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .visitar:hover {
-            background: #d9bdc4;
-        }
-
-        footer {
-            text-align: center;
-            padding: 45px 20px 30px;
-            color: #91837d;
-            font-size: 12px;
-        }
-
-        @media (max-width: 700px) {
-
-            .botones {
-                grid-template-columns: 1fr;
-            }
-
-            .titulo h1 {
-                font-size: 30px;
-            }
-        }
-
-    </style>
 </head>
 
 <body>
 
-    <header>
+```
+<!-- =====================================================
+     ENCABEZADO
+     ===================================================== -->
 
-        <div class="nav">
+<header>
 
-            <a href="index.html" class="logo">
-                Saikio Algorithm
-            </a>
+    <div class="nav">
 
-            <a href="index.html" class="volver">
-                ← Volver al inicio
-            </a>
+        <a href="index.html" class="logo">
+            Saikio Algorithm
+        </a>
 
-        </div>
+        <a href="index.html" class="volver">
+            ← Volver
+        </a>
 
-    </header>
+    </div>
+
+</header>
 
 
-    <main>
 
-        <section class="titulo">
+<!-- =====================================================
+     ZONA DE DEMOSTRACIÓN
+     ===================================================== -->
 
-            <h1>Configuración de la página</h1>
+<main class="zona-demo">
 
-            <p>
-                Selecciona los componentes que deseas incorporar
-                a la experiencia de Saikio Algorithm y observa
-                cómo cambia la página principal.
+
+    <!-- =================================================
+         CONTENIDO DEL FONDO
+         ================================================= -->
+
+    <section class="contenido-demo">
+
+        <div class="resultado" id="resultado">
+
+
+            <div class="elemento-decorativo flor">
+                ✦　❀　✦
+            </div>
+
+
+            <h1 id="titulo">
+                Estructura HTML
+            </h1>
+
+
+            <p class="subtitulo" id="descripcion">
+
+                Esta página representa la estructura fundamental
+                de una experiencia web. HTML organiza el contenido
+                y establece los elementos que forman la página.
+
             </p>
 
-        </section>
+
+            <div class="elemento-decorativo linea"></div>
 
 
-        <div id="estado" class="estado">
-            Configuración actual: solo HTML
-        </div>
+            <div
+                class="js-indicador"
+                id="jsIndicador">
 
-
-        <section class="panel">
-
-            <h2>Componentes de desarrollo</h2>
-
-            <p class="descripcion">
-                Activa o desactiva cada tecnología según la demostración que deseas realizar.
-            </p>
-
-
-            <div class="botones">
-
-                <button
-                    id="btnHTML"
-                    class="boton activo"
-                    onclick="soloHTML()">
-
-                    <span class="icono">◇</span>
-
-                    Solo HTML
-
-                </button>
-
-
-                <button
-                    id="btnCSS"
-                    class="boton"
-                    onclick="alternarCSS()">
-
-                    <span class="icono">✦</span>
-
-                    Agregar CSS
-
-                </button>
-
-
-                <button
-                    id="btnJS"
-                    class="boton"
-                    onclick="alternarJS()">
-
-                    <span class="icono">⌁</span>
-
-                    Agregar JS
-
-                </button>
+                JavaScript se encuentra activo.
+                La página ahora puede responder a las acciones
+                del usuario e incorporar comportamiento dinámico.
 
             </div>
 
 
-            <div class="info">
+        </div>
 
-                <p>
-                    HTML proporciona la estructura de la página.
-                    CSS define su presentación visual y JavaScript
-                    incorpora comportamiento e interacción.
-                </p>
-
-            </div>
+    </section>
 
 
-            <a href="index.html" class="visitar">
-                Ver página principal
-            </a>
 
-        </section>
+    <!-- =================================================
+         PANEL DE CONTROL
 
-    </main>
+         ESTE PANEL SIEMPRE PERMANECE IGUAL
+         ================================================= -->
+
+    <section class="panel-control">
+
+        <h2>
+            Componentes de desarrollo
+        </h2>
+
+
+        <p class="descripcion">
+
+            Activa o desactiva cada tecnología para observar
+            cómo interviene en la construcción de una página web.
+
+        </p>
+
+
+        <div class="botones">
+
+
+            <!-- SOLO HTML -->
+
+            <button
+                class="boton activo"
+                id="btnHTML"
+                onclick="soloHTML()">
+
+                <span class="icono">
+                    ◇
+                </span>
+
+                Solo HTML
+
+            </button>
+
+
+
+            <!-- CSS -->
+
+            <button
+                class="boton"
+                id="btnCSS"
+                onclick="alternarCSS()">
+
+                <span class="icono">
+                    ✦
+                </span>
+
+                Agregar CSS
+
+            </button>
+
+
+
+            <!-- JAVASCRIPT -->
+
+            <button
+                class="boton"
+                id="btnJS"
+                onclick="alternarJS()">
+
+                <span class="icono">
+                    ⌁
+                </span>
+
+                Agregar JS
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ESTADO
+
+         TAMBIÉN ESTÁ FUERA DEL PANEL
+         ================================================= -->
+
+    <div
+        class="estado"
+        id="estado">
+
+        Configuración actual: solo HTML
+
+    </div>
 
 
     <footer>
+
         Saikio Algorithm · Desarrollo de Software
+
     </footer>
 
 
-    <script>
-
-        /*
-        ==========================================
-        LEER CONFIGURACIÓN GUARDADA
-        ==========================================
-        */
-
-        let cssActivo =
-            localStorage.getItem("saikioCSS") === "true";
-
-        let jsActivo =
-            localStorage.getItem("saikioJS") === "true";
+</main>
 
 
-        /*
-        ==========================================
-        ELEMENTOS
-        ==========================================
-        */
 
-        const btnHTML =
-            document.getElementById("btnHTML");
+<!-- =====================================================
+     JAVASCRIPT DE LA PÁGINA
+     ===================================================== -->
 
-        const btnCSS =
-            document.getElementById("btnCSS");
-
-        const btnJS =
-            document.getElementById("btnJS");
-
-        const estado =
-            document.getElementById("estado");
+<script>
 
 
-        /*
-        ==========================================
-        ACTUALIZAR INTERFAZ
-        ==========================================
-        */
+    /* =================================================
+       ESTADOS
+       ================================================= */
 
-        function actualizarInterfaz() {
-
-            /*
-            BOTÓN CSS
-            */
-
-            if (cssActivo) {
-
-                btnCSS.classList.add("activo");
-
-            } else {
-
-                btnCSS.classList.remove("activo");
-
-            }
+    let cssActivo = false;
+    let jsActivo = false;
 
 
-            /*
-            BOTÓN JS
-            */
 
-            if (jsActivo) {
+    /* =================================================
+       ELEMENTOS
+       ================================================= */
 
-                btnJS.classList.add("activo");
+    const btnHTML =
+        document.getElementById("btnHTML");
 
-            } else {
+    const btnCSS =
+        document.getElementById("btnCSS");
 
-                btnJS.classList.remove("activo");
+    const btnJS =
+        document.getElementById("btnJS");
 
-            }
+    const estado =
+        document.getElementById("estado");
 
+    const resultado =
+        document.getElementById("resultado");
 
-            /*
-            HTML SIEMPRE ESTÁ ACTIVO
-            */
+    const titulo =
+        document.getElementById("titulo");
 
-            btnHTML.classList.add("activo");
+    const descripcion =
+        document.getElementById("descripcion");
 
-
-            /*
-            MENSAJE
-            */
-
-            if (cssActivo && jsActivo) {
-
-                estado.textContent =
-                    "La experiencia completa se encuentra activada.";
-
-                estado.classList.add("completo");
-
-            }
-
-            else if (cssActivo) {
-
-                estado.textContent =
-                    "La estructura HTML y la presentación CSS se encuentran activas.";
-
-                estado.classList.remove("completo");
-
-            }
-
-            else if (jsActivo) {
-
-                estado.textContent =
-                    "La estructura HTML y la interacción JavaScript se encuentran activas.";
-
-                estado.classList.remove("completo");
-
-            }
-
-            else {
-
-                estado.textContent =
-                    "Configuración actual: solo HTML";
-
-                estado.classList.remove("completo");
-
-            }
-
-        }
+    const jsIndicador =
+        document.getElementById("jsIndicador");
 
 
-        /*
-        ==========================================
-        SOLO HTML
-        ==========================================
-        */
 
-        function soloHTML() {
+    /* =================================================
+       SOLO HTML
+       ================================================= */
 
-            cssActivo = false;
-            jsActivo = false;
+    function soloHTML() {
 
-            localStorage.setItem(
-                "saikioCSS",
-                "false"
-            );
+        cssActivo = false;
+        jsActivo = false;
 
-            localStorage.setItem(
-                "saikioJS",
-                "false"
-            );
+        actualizarPagina();
 
-            actualizarInterfaz();
+    }
+
+
+
+    /* =================================================
+       AGREGAR / QUITAR CSS
+       ================================================= */
+
+    function alternarCSS() {
+
+        cssActivo = !cssActivo;
+
+        actualizarPagina();
+
+    }
+
+
+
+    /* =================================================
+       AGREGAR / QUITAR JAVASCRIPT
+       ================================================= */
+
+    function alternarJS() {
+
+        jsActivo = !jsActivo;
+
+        actualizarPagina();
+
+    }
+
+
+
+    /* =================================================
+       ACTUALIZAR LA PÁGINA
+       ================================================= */
+
+    function actualizarPagina() {
+
+
+        /* =============================================
+           BOTÓN HTML
+           ============================================= */
+
+        btnHTML.classList.add("activo");
+
+
+
+        /* =============================================
+           BOTÓN CSS
+           ============================================= */
+
+        if (cssActivo) {
+
+            btnCSS.classList.add("activo");
+
+        } else {
+
+            btnCSS.classList.remove("activo");
 
         }
 
 
-        /*
-        ==========================================
-        ACTIVAR / DESACTIVAR CSS
-        ==========================================
-        */
 
-        function alternarCSS() {
+        /* =============================================
+           BOTÓN JS
+           ============================================= */
 
-            cssActivo = !cssActivo;
+        if (jsActivo) {
 
-            localStorage.setItem(
-                "saikioCSS",
-                cssActivo
-            );
+            btnJS.classList.add("activo");
 
-            actualizarInterfaz();
+        } else {
+
+            btnJS.classList.remove("activo");
 
         }
 
 
-        /*
-        ==========================================
-        ACTIVAR / DESACTIVAR JAVASCRIPT
-        ==========================================
-        */
 
-        function alternarJS() {
+        /* =============================================
+           QUITAR ESTILOS DE DEMOSTRACIÓN
+           ============================================= */
 
-            jsActivo = !jsActivo;
+        resultado.classList.remove("modo-html");
+        resultado.classList.remove("modo-css");
 
-            localStorage.setItem(
-                "saikioJS",
-                jsActivo
-            );
+        resultado.classList.remove("js-activo");
 
-            actualizarInterfaz();
+
+
+        /* =============================================
+           SOLO HTML
+           ============================================= */
+
+        if (!cssActivo && !jsActivo) {
+
+            resultado.classList.add("modo-html");
+
+            titulo.textContent =
+                "Estructura HTML";
+
+            descripcion.textContent =
+                "Esta página representa la estructura fundamental de una experiencia web. HTML organiza el contenido y establece los elementos que forman la página.";
+
+            estado.textContent =
+                "Configuración actual: solo HTML";
+
+            estado.classList.remove("completo");
 
         }
 
 
-        /*
-        ==========================================
-        INICIAR
-        ==========================================
-        */
 
-        actualizarInterfaz();
+        /* =============================================
+           HTML + CSS
+           ============================================= */
 
-    </script>
+        else if (cssActivo && !jsActivo) {
+
+            resultado.classList.add("modo-css");
+
+            titulo.textContent =
+                "HTML + CSS";
+
+            descripcion.textContent =
+                "CSS transforma la estructura básica mediante estilos, distribución, tipografía y elementos visuales que permiten construir una presentación más definida y armoniosa.";
+
+            estado.textContent =
+                "HTML y CSS se encuentran activos.";
+
+            estado.classList.remove("completo");
+
+        }
+
+
+
+        /* =============================================
+           HTML + JS
+           ============================================= */
+
+        else if (!cssActivo && jsActivo) {
+
+            resultado.classList.add("modo-html");
+
+            resultado.classList.add("js-activo");
+
+            titulo.textContent =
+                "HTML + JavaScript";
+
+            descripcion.textContent =
+                "JavaScript incorpora comportamiento e interacción, permitiendo que los elementos de una página respondan dinámicamente a las acciones del usuario.";
+
+            estado.textContent =
+                "HTML y JavaScript se encuentran activos.";
+
+            estado.classList.remove("completo");
+
+        }
+
+
+
+        /* =============================================
+           HTML + CSS + JS
+           ============================================= */
+
+        else {
+
+            resultado.classList.add("modo-css");
+
+            resultado.classList.add("js-activo");
+
+            titulo.textContent =
+                "Experiencia web completa";
+
+            descripcion.textContent =
+                "HTML proporciona la estructura, CSS define la presentación visual y JavaScript incorpora interacción y comportamiento dinámico.";
+
+            estado.textContent =
+                "La experiencia completa se encuentra activada.";
+
+            estado.classList.add("completo");
+
+        }
+
+    }
+
+
+
+    /* =================================================
+       ESTADO INICIAL
+       ================================================= */
+
+    actualizarPagina();
+
+
+</script>
+```
 
 </body>
 
