@@ -2114,6 +2114,127 @@ em {
 
 
 
+/* ================================
+   VIDEO PROMOCIONAL - SAIKIO
+   ================================ */
+
+.saikio-video-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 80px auto 70px;
+    padding: 0 25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Título */
+
+.saikio-video-heading {
+    margin-bottom: 30px;
+}
+
+.video-line {
+    display: block;
+    width: 45px;
+    height: 1px;
+    margin: 0 auto 18px;
+    background: #c9a88a;
+    opacity: 0.7;
+}
+
+.video-subtitle {
+    margin: 0 0 6px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #a88970;
+    font-weight: 500;
+}
+
+.saikio-video-heading h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #51463f;
+}
+
+.video-description {
+    max-width: 570px;
+    margin: 12px auto 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #81756d;
+}
+
+/* Contenedor del video */
+
+.saikio-video-container {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 8px;
+    background: rgba(255, 252, 247, 0.8);
+    border: 1px solid rgba(190, 157, 127, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(105, 84, 68, 0.10);
+    box-sizing: border-box;
+}
+
+.saikio-video-container video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eee5dc;
+}
+
+/* Decoración inferior */
+
+.video-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin-top: 22px;
+    color: #c5a58a;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.video-decoration span:nth-child(2) {
+    font-size: 14px;
+}
+
+/* Adaptación para celular */
+
+@media (max-width: 600px) {
+
+    .saikio-video-section {
+        margin: 55px auto 50px;
+        padding: 0 16px;
+    }
+
+    .saikio-video-heading h2 {
+        font-size: 24px;
+    }
+
+    .video-description {
+        font-size: 14px;
+    }
+
+    .saikio-video-container {
+        padding: 5px;
+        border-radius: 14px;
+    }
+
+    .saikio-video-container video {
+        border-radius: 10px;
+    }
+}
+
+
+
 /* ==========================================================
    MODAL
 ========================================================== */
